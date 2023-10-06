@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -19,13 +18,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.gatepay.signalr_sample.common.navigation.Screen
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(){
+fun LoginScreen(navController: NavController) {
 
-    var text by remember { mutableStateOf("Hello") }
+    var text by remember { mutableStateOf("") }
 
     Column(modifier=
         Modifier.fillMaxSize(),
@@ -33,14 +35,26 @@ fun LoginScreen(){
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         TextField(
-            modifier = Modifier.fillMaxWidth().padding(all =
-            12.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(
+                    all =
+                    12.dp
+                ),
             value = text,
             onValueChange = { text = it },
             label = { Text("Phone Number") }
         )
-        Button(onClick = { }, Modifier.fillMaxWidth().padding(all =
-        12.dp),) {
+        Button(onClick = {
+            navController.navigate(Screen.PasswordScreen.route)
+
+        },
+            Modifier
+                .fillMaxWidth()
+                .padding(
+                    all =
+                    12.dp
+                ),) {
             Text("Register")
         }
     }
@@ -52,5 +66,6 @@ fun LoginScreen(){
 @Preview(showSystemUi = true)
 @Composable
 fun PreviewLoginScreen(){
-LoginScreen()
+    val navController = rememberNavController()
+LoginScreen(navController)
 }

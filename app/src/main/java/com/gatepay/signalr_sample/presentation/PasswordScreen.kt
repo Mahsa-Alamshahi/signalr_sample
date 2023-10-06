@@ -1,7 +1,6 @@
 package com.gatepay.signalr_sample.presentation
 
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.wrapContentWidth
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -22,11 +20,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PasswordScreen(){
+fun PasswordScreen(navController: NavController) {
 
     var firstDigit by remember { mutableStateOf("") }
     var secondDigit by remember { mutableStateOf("") }
@@ -47,7 +47,8 @@ fun PasswordScreen(){
         ) {
 
             TextField(
-                modifier = Modifier.weight(1f)
+                modifier = Modifier
+                    .weight(1f)
                     .padding(
                         all =
                         12.dp
@@ -56,7 +57,8 @@ fun PasswordScreen(){
                 onValueChange = { firstDigit = it },
             )
             TextField(
-                modifier = Modifier.weight(1f)
+                modifier = Modifier
+                    .weight(1f)
                     .padding(
                         all =
                         12.dp
@@ -65,7 +67,8 @@ fun PasswordScreen(){
                 onValueChange = { secondDigit = it },
             )
             TextField(
-                modifier = Modifier.weight(1f)
+                modifier = Modifier
+                    .weight(1f)
                     .padding(
                         all =
                         12.dp
@@ -74,7 +77,8 @@ fun PasswordScreen(){
                 onValueChange = { thirdDigit = it },
             )
             TextField(
-                modifier = Modifier.weight(1f)
+                modifier = Modifier
+                    .weight(1f)
                     .padding(
                         all =
                         12.dp
@@ -104,5 +108,6 @@ fun PasswordScreen(){
 @Preview(showSystemUi = true)
 @Composable
 fun PreviewPasswordScreen(){
-    PasswordScreen()
+    val navController = rememberNavController()
+    PasswordScreen(navController)
 }
