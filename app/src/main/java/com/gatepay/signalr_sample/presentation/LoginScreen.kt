@@ -37,11 +37,11 @@ fun LoginScreen(){
             12.dp),
             value = text,
             onValueChange = { text = it },
-            label = { Text("Label") }
+            label = { Text("Phone Number") }
         )
         Button(onClick = { }, Modifier.fillMaxWidth().padding(all =
         12.dp),) {
-            Text("Login")
+            Text("Register")
         }
     }
 }
