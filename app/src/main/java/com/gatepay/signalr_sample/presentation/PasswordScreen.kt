@@ -84,7 +84,9 @@ fun PasswordScreen(){
             )
         }
 
-        Button(onClick = { },
+        Button(onClick = {
+
+        },
             Modifier
                 .fillMaxWidth()
                 .padding(
