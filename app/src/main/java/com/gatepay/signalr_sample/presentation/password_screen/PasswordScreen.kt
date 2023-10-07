@@ -1,4 +1,4 @@
-package com.gatepay.signalr_sample.presentation
+package com.gatepay.signalr_sample.presentation.password_screen
 
 import androidx.compose.foundation.layout.Row
 
@@ -22,11 +22,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.gatepay.signalr_sample.data.data_source.remote.dto.LoginAndRegisterRequest
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PasswordScreen(navController: NavController) {
+fun PasswordScreen(navController: NavController, loginRequest: LoginAndRegisterRequest) {
 
     var firstDigit by remember { mutableStateOf("") }
     var secondDigit by remember { mutableStateOf("") }
@@ -103,11 +104,11 @@ fun PasswordScreen(navController: NavController) {
 }
 
 
-
-
-@Preview(showSystemUi = true)
-@Composable
-fun PreviewPasswordScreen(){
-    val navController = rememberNavController()
-    PasswordScreen(navController)
-}
+//
+//
+//@Preview(showSystemUi = true)
+//@Composable
+//fun PreviewPasswordScreen(){
+//    val navController = rememberNavController()
+//    PasswordScreen(navController, loginRequest)
+//}

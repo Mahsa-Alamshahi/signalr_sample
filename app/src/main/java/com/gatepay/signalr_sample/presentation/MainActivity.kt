@@ -12,8 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.gatepay.signalr_sample.common.navigation.NavGraph
-import com.gatepay.signalr_sample.ui.theme.SingleRTheme
+import com.gatepay.signalr_sample.common.ui.theme.SingleRTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

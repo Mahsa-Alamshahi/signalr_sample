@@ -1,4 +1,4 @@
-package com.gatepay.signalr_sample.ui.theme
+package com.gatepay.signalr_sample.common.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
