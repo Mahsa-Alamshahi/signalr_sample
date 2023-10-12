@@ -116,4 +116,31 @@ dependencies {
     //Logger
     implementation("com.orhanobut:logger:2.2.0")
 
+
+    // Room
+    implementation("androidx.room:room-runtime:2.5.2")
+    implementation("androidx.room:room-ktx:2.5.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
+    kapt("androidx.room:room-compiler:2.5.2")
+    implementation("androidx.room:room-rxjava2:2.5.2")
+
+
+
+
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+    implementation("androidx.compose.runtime:runtime-livedata:1.6.0-alpha07")
+
+
+    implementation(files("libs\\signalr-8.0.0-rc.1.23421.29.jar"))
+    implementation(files("libs\\rxjava-3.0.11.jar"))
+    implementation(files("libs\\slf4j-api-1.7.25.jar"))
+    implementation(files("libs\\signalr-client-sdk.jar"))
+    implementation(files("libs\\signalr-client-sdk-android.jar"))
+    implementation(files("libs\\aspnetsignalr-1.0.2.aar"))
+
+//    implementation("au.com.jtribe:signalr-client-sdk-android:1.0.0")
+//    implementation("com.microsoft.signalr:signalr:7.0.0")
+//    implementation("com.smartarmenia:dotnetcoresignalrclientjava:1.14")
+
+
 }

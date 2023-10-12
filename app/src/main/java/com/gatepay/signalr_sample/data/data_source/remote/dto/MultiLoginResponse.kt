@@ -8,7 +8,7 @@ data class MultiLoginResponse(
     @SerializedName("Message")
     val message: String,
     @SerializedName("Record")
-    val record: Record,
+    val recordResponse: RecordResponse,
     @SerializedName("Result")
     val result: String,
     @SerializedName("SerializerSettings")

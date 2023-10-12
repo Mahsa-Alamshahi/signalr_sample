@@ -1,8 +1,9 @@
 package com.gatepay.signalr_sample.data.data_source.remote.dto
 
+import com.gatepay.signalr_sample.data.data_source.local.LoginEntity
 import com.google.gson.annotations.SerializedName
 
-data class Record(
+data class RecordResponse(
     @SerializedName("AdvertisementToken")
     val advertisementToken: String,
     @SerializedName("AutomationToken")
@@ -42,3 +43,29 @@ data class Record(
     @SerializedName("Username")
     val username: String
 )
+
+
+fun RecordResponse.toLoginEntity(password: String): LoginEntity {
+    return LoginEntity(
+        firstName = firstName,
+        lastName = lastName,
+        username = username,
+        userId = userId,
+        chatToken = chatToken,
+        publicToken = publicToken,
+        automationToken = automationToken,
+        payingWagesToken = payingWagesToken,
+        advertisementToken = advertisementToken,
+        consoleToken = consoleToken,
+        pushNotificationsToken = pushNotificationsToken,
+        institutionToken = institutionToken,
+        libraryToken = libraryToken,
+        expireDate = expireDate,
+        monitoringToken = monitoringToken,
+        noticeToken = noticeToken,
+        smsLogToken = smsLogToken,
+        storeToken = storeToken,
+        password = password
+    )
+
+}

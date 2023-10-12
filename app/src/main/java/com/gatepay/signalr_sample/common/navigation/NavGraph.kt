@@ -13,21 +13,25 @@ import androidx.navigation.navArgument
 import com.gatepay.signalr_sample.common.LOGIN_REQUEST_ARGUMENT
 import com.gatepay.signalr_sample.common.navigation.NavArgJsonConverter.fromJson
 import com.gatepay.signalr_sample.data.data_source.remote.dto.LoginAndRegisterRequest
-import com.gatepay.signalr_sample.presentation.phonenumber_screen.LoginScreen
+import com.gatepay.signalr_sample.presentation.online_friends_screen.OnlineFriendsScreen
 import com.gatepay.signalr_sample.presentation.password_screen.PasswordScreen
+import com.gatepay.signalr_sample.presentation.phonenumber_screen.PhoneNumberScreen
 
 @Composable
-fun NavGraph(navController: NavHostController) {
-    NavHost(navController, startDestination = Screen.LoginScreen.route) {
+fun NavGraph(navController: NavHostController, startDest: String) {
+
+
+    NavHost(navController, startDestination = startDest) {
         loginScreenRoute(navController)
         passwordScreenRoute(navController)
+        onlineFriendsScreenRoute()
     }
 }
 
 
 fun NavGraphBuilder.loginScreenRoute(navController: NavController) {
     composable(
-        route = Screen.LoginScreen.route,
+        route = Screen.PhoneNumberScreen.route,
         enterTransition = {
             slideIntoContainer(
                 towards = AnimatedContentTransitionScope.SlideDirection.Companion.Left,
@@ -41,7 +45,7 @@ fun NavGraphBuilder.loginScreenRoute(navController: NavController) {
             )
         },
     ) {
-        LoginScreen(navController)
+        PhoneNumberScreen(navController)
     }
 }
 
@@ -72,3 +76,25 @@ fun NavGraphBuilder.passwordScreenRoute(navController: NavController) {
             }
     }
 }
+
+
+fun NavGraphBuilder.onlineFriendsScreenRoute() {
+    composable(
+        route = Screen.OnlineFriendsScreen.route,
+        enterTransition = {
+            slideIntoContainer(
+                towards = AnimatedContentTransitionScope.SlideDirection.Companion.Left,
+                animationSpec = tween(700)
+            )
+        },
+        exitTransition = {
+            slideOutOfContainer(
+                towards = AnimatedContentTransitionScope.SlideDirection.Companion.Left,
+                animationSpec = tween(700)
+            )
+        },
+    ) {
+        OnlineFriendsScreen()
+    }
+}
+
